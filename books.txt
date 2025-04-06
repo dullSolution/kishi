@@ -1,0 +1,4 @@
+100       well           who            where          0.100000       
+10        doko           hello          where          0.300000       
+110       now            na             hahaha         0.100000       
+233       ooo            rrr            qqq            5.100000       
