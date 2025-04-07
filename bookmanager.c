@@ -20,9 +20,6 @@ BookManager* bookManager_alloc(){
     assert(bm !=NULL);
     bm->books=SeqList_alloc();
     bookManager_load(bm,"books",true);
-    // SeqList_push(bm->books,book_alloc_with(100,"well","who","where",0.1));
-    // SeqList_push(bm->books,book_alloc_with(10,"doko","hello","where",0.3));
-    // SeqList_push(bm->books,book_alloc_with(110,"now","na","hahaha",0.1));
 
     return bm;
 }
