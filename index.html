@@ -50,17 +50,29 @@
             
             const output = document.getElementById('output');
             output.innerHTML = '<div>生成中...</div>';
-
+	    var randomNumber = "111";	
             // 构造请求参数
             const prompt = encodeURIComponent(document.getElementById('prompt').value);
             const model = document.getElementById('model').value;
             const width = document.getElementById('width').value || 512;
             const height = document.getElementById('height').value || 512;
-            const seed = document.getElementById('seed').value;
+            
+	    let randomUrl='https://www.random.org/integers/?num=1&min=1&max=16222&col=1&base=10&format=plain&rnd=new'
 
+	    try{
+		const res=await fetch(randomUrl)
+		var text=await res.text()
+		randomNumber=text
+		console.log(randomNumber)
+		
+		}catch(error){
+		console.log(error)
+		}
             // 构建API URL
-            let apiUrl = `https://image.pollinations.ai/prompt/${prompt}?model=${model}&width=${width}&height=${height}&nologo=true`;
-            if (seed) apiUrl += `&seed=${seed}`;
+	const seed = document.getElementById('seed').value || randomNumber;
+
+            let apiUrl = `https://image.pollinations.ai/prompt/${prompt}?model=${model}&width=${width}&height=${height}&nologo=true&seed=${seed}`;
+            //if (seed) apiUrl += `&seed=${seed}`;
 
             try {
                 // 创建图片并测试加载
